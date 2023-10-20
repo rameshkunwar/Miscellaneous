@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+<meta charset='utf-8' />
+<title>EnumPerformance.Benchmarks-20231020-230128</title>
+
+<style type="text/css">
+	table { border-collapse: collapse; display: block; width: 100%; overflow: auto; }
+	td, th { padding: 6px 13px; border: 1px solid #ddd; text-align: right; }
+	tr { background-color: #fff; border-top: 1px solid #ccc; }
+	tr:nth-child(even) { background: #f8f8f8; }
+</style>
+</head>
+<body>
+<pre><code>
+BenchmarkDotNet v0.13.9+228a464e8be6c580ad9408e98f18813f6407fb5a, Windows 11 (10.0.22621.2428/22H2/2022Update/SunValley2)
+Intel Core i7-8565U CPU 1.80GHz (Whiskey Lake), 1 CPU, 8 logical and 4 physical cores
+.NET SDK 7.0.400
+  [Host]   : .NET 7.0.10 (7.0.1023.36312), X64 RyuJIT AVX2 [AttachedDebugger]
+  .NET 7.0 : .NET 7.0.10 (7.0.1023.36312), X64 RyuJIT AVX2
+</code></pre>
+<pre><code>Job=.NET 7.0  Runtime=.NET 7.0  
+</code></pre>
+
+<table>
+<thead><tr><th>Method</th><th>Mean </th><th>Error</th><th>StdDev</th><th>Median</th><th>Ratio</th><th>Allocated</th><th>Alloc Ratio</th>
+</tr>
+</thead><tbody><tr><td>IsDefined</td><td>26.26 ns</td><td>1.299 ns</td><td>3.768 ns</td><td>25.20 ns</td><td>1.00</td><td>-</td><td>NA</td>
+</tr><tr><td>GetName</td><td>29.15 ns</td><td>1.893 ns</td><td>5.400 ns</td><td>27.32 ns</td><td>1.00</td><td>-</td><td>NA</td>
+</tr><tr><td>GetNames</td><td>51.57 ns</td><td>2.821 ns</td><td>8.049 ns</td><td>49.08 ns</td><td>1.00</td><td>80 B</td><td>1.00</td>
+</tr><tr><td>GetValues</td><td>1,032.18 ns</td><td>39.099 ns</td><td>114.054 ns</td><td>999.85 ns</td><td>1.00</td><td>224 B</td><td>1.00</td>
+</tr><tr><td>EnumToString</td><td>35.83 ns</td><td>1.700 ns</td><td>4.931 ns</td><td>35.07 ns</td><td>1.00</td><td>24 B</td><td>1.00</td>
+</tr><tr><td>TryParse</td><td>70.18 ns</td><td>2.441 ns</td><td>7.197 ns</td><td>70.02 ns</td><td>1.00</td><td>-</td><td>NA</td>
+</tr></tbody></table>
+</body>
+</html>
